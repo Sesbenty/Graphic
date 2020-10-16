@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Build;
 using System.Threading.Tasks;
 
 namespace Graphic.DrawFunction
@@ -29,7 +30,11 @@ namespace Graphic.DrawFunction
                     break;
                 case '/':
                     break;
-                case '0' - '9':
+                default:
+                    if (new char[] {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0' }.Contains(func[current]))
+                    {
+
+                    }
                     break;
             }
         }
