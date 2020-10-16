@@ -13,6 +13,18 @@ namespace Graphic.Geometry
         public float z { get; set; }
         public float w { get; set; }
 
+
+        public Vector4(float x, float y)
+        {
+            this.x = x;
+            this.y = y;
+        }
+        public Vector4(float x, float y, float z)
+        {
+            this.x = x;
+            this.y = y;
+            this.z = z;
+        }
         public Vector4(float x, float y, float z, float w)
         {
             this.x = x;
