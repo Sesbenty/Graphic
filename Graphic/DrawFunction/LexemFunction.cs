@@ -13,7 +13,7 @@ namespace Graphic.DrawFunction
         static string func;
         public static void Function(string func)
         {
-
+            
         }
 
         public static void NextLexem()
