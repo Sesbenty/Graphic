@@ -11,11 +11,11 @@ namespace Graphic.Objects
 {
     class GeometryObject : Component
     {
-        List<Vector3> points;
+        List<Vector4> points;
         List<Point> lines;
         int a;
 
-        public GeometryObject(GameObject parent, List<Vector3> points, List<Point> lines):base(parent)
+        public GeometryObject(GameObject parent, List<Vector4> points, List<Point> lines):base(parent)
         {
             this.points = points;
             this.lines = lines;
@@ -34,28 +34,29 @@ namespace Graphic.Objects
 
         public override void Start()
         {
-            
+
         }
+    
 
         public override void Update()
         {
+                float time = Time.deltaTime;
 
-            float time = Time.deltaTime;
+                gameObject.position.AngleAtCenter(time, new Vector4(300,300,50));
 
-            //gameObject.position.AngleAtCenter(time, new Vector2(300,300));
+                Matrix4x4 mx = Matrix4x4.MatrixRotateX(time);
+                Matrix4x4 my = Matrix4x4.MatrixRotateY(time);
+                Matrix4x4 mz = Matrix4x4.MatrixRotateZ(time);
+
+                for (int i = 0; i < points.Count; i++)
+                {
+
+                    mx.Mult(points[i]);
+                    my.Mult(points[i]);
+                    mz.Mult(points[i]);
+                    //Console.Write(points[i].x + " " + points[i].y+"  -- ");
+                }
             
-            Matrix3x3 mx = Matrix3x3.MatrixRotateX(time);
-            Matrix3x3 my = Matrix3x3.MatrixRotateY(time);
-            Matrix3x3 mz = Matrix3x3.MatrixRotateZ(time);
-
-            for (int i = 0; i < points.Count; i++)
-            {
-
-                mx.Mult(points[i]);
-                my.Mult(points[i]);
-                mz.Mult(points[i]);
-                // Console.Write(points[i].x + " " + points[i].y+"  -- ");
-            }
         }
     }
 }

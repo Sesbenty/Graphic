@@ -9,14 +9,14 @@ namespace Graphic.Objects
 {
     class GameObject
     {
-        public Vector3 position;
+        public Vector4 position;
 
         private List<Component> components;
 
         public GameObject()
         {
             components = new List<Component>();
-            position = new Vector3(0, 0);
+            position = new Vector4(0, 0);
         }
 
         public void Update()

@@ -18,6 +18,8 @@ namespace Graphic.Objects
             this.sprite = sprite;
             this.height = height;
             this.width = width;
+
+            
         }
 
         public Sprite(GameObject parent, Bitmap sprite) : base(parent)

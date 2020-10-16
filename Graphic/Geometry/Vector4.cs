@@ -34,9 +34,29 @@ namespace Graphic.Geometry
         }
 
 
-        public static Vector4 operator+(Matrix4x4 m, Vector4 v)
+        public void Set(float x, float y, float z, float w)
         {
-            return new Vector4(0,0,0,0);
+            this.x = x;
+            this.y = y;
+            this.z = z;
+            this.w = w;
+        }
+        public void AngleAtCenter(float a, Vector4 center)
+        {
+            x -= center.x;
+            y -= center.y;
+            z -= center.z;
+            w -= center.w;
+            Matrix4x4.MatrixRotateZ(a).Mult(this);
+
+            x += center.x;
+            y += center.y;
+            z += center.z;
+            w += center.w;
+        }
+        public static Vector4 operator+(Vector4 a, Vector4 b)
+        {
+            return new Vector4(a.x + b.x, a.y + b.y, a.z + b.z, a.w + b.w);
         }
 
     }

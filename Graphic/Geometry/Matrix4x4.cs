@@ -74,6 +74,8 @@ namespace Graphic.Geometry
             float y = v.x * vs[4] + v.y * vs[5] + v.z * vs[6] + v.w * vs[7];
             float z = v.x * vs[8] + v.y * vs[9] + v.z * vs[10] + v.w * vs[11];
             float w = v.x * vs[12] + v.y * vs[13] + v.z * vs[14] + v.w * vs[15];
+
+            v.Set(x, y, z, w);
         }
     }
 }

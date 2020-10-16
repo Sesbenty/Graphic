@@ -55,23 +55,23 @@ namespace Graphic
             for (int i = 0; i < 12; i++)
             {
                 gameObjects.Add(box(
-                    new Vector3((float)rnd.NextDouble() * 400,
+                    new Vector4((float)rnd.NextDouble() * 400,
                     (float)rnd.NextDouble() * 400,
-                    (float)rnd.NextDouble() * 1)
+                    (float)rnd.NextDouble() * 400)
                     ));
             } 
 
         }
 
-        public GameObject box(Vector3 postion)
+        public GameObject box(Vector4 postion)
         {
             GameObject box = new GameObject();
 
-            var p = new List<Vector3>();
-            p.Add(new Vector3(-50, 50));
-            p.Add(new Vector3(50, 50));
-            p.Add(new Vector3(50, -50));
-            p.Add(new Vector3(-50, -50));
+            var p = new List<Vector4>();
+            p.Add(new Vector4(-50, 50,12));
+            p.Add(new Vector4(50, 50,45));
+            p.Add(new Vector4(50, -50,-45));
+            p.Add(new Vector4(-50, -50,-23));
 
             var l = new List<Point>();
             l.Add(new Point(0, 1));
