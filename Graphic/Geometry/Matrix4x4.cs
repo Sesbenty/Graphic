@@ -68,6 +68,21 @@ namespace Graphic.Geometry
             return m;
         }
 
+        public static Matrix4x4 MatrixView(float c)
+        {
+            Matrix4x4 m = new Matrix4x4();
+
+            m.vs[0] = 1;
+            m.vs[5] = 1;
+
+            m.vs[11] = -1 / c;
+
+            m.vs[10] = 1;
+            m.vs[15] = 1;
+
+            return m;
+        }
+
         public void Mult(Vector4 v)
         {
             float x = v.x * vs[0] + v.y * vs[1] + v.z * vs[2] + v.w * vs[3] ;

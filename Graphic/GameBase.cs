@@ -36,7 +36,7 @@ namespace Graphic
             enemy.AddComponent(spriteEnemy);
             List<Vector3> points = new List<Vector3>();
             Random r = new Random();
-            for (int i = 0; i < 30; i++)
+            for (int i = 0; i < 5; i++)
             {
                 points.Add(new Vector3((float)r.NextDouble() * 500, (float)r.NextDouble() * 500));
             }
@@ -52,11 +52,11 @@ namespace Graphic
 
 
             Random rnd = new Random(100);
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < 4; i++)
             {
                 gameObjects.Add(box(
-                    new Vector4((float)rnd.NextDouble() * 400,
-                    (float)rnd.NextDouble() * 400,
+                    new Vector4((float)rnd.NextDouble() * 200,
+                    (float)rnd.NextDouble() * 200,
                     (float)rnd.NextDouble() * 400)
                     ));
             } 
@@ -68,10 +68,10 @@ namespace Graphic
             GameObject box = new GameObject();
 
             var p = new List<Vector4>();
-            p.Add(new Vector4(-50, 50,12));
-            p.Add(new Vector4(50, 50,45));
-            p.Add(new Vector4(50, -50,-45));
-            p.Add(new Vector4(-50, -50,-23));
+            p.Add(new Vector4(-50, 50,2));
+            p.Add(new Vector4(50, 50,2));
+            p.Add(new Vector4(50, -50,2));
+            p.Add(new Vector4(-50, -50,2));
 
             var l = new List<Point>();
             l.Add(new Point(0, 1));

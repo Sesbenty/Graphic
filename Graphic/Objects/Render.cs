@@ -53,7 +53,11 @@ namespace Graphic
 
         public static void WuLine(Vector4 a, Vector4 b)
         {
-            WuLine(Convert.ToInt32(a.x), Convert.ToInt32(a.y), Convert.ToInt32(b.x), Convert.ToInt32(b.y));
+            int ax = Convert.ToInt32(a.x / (1 - a.z / 500));
+            int ay = Convert.ToInt32(a.y / (1 - a.z / 500));
+            int bx = Convert.ToInt32(b.x / (1 - b.z / 500));
+            int by = Convert.ToInt32(b.y / (1 - b.z / 500));
+            WuLine(ax, ay, bx, by);
         }
         public static void WuLine(Vector3 a, Vector3 b)
         {

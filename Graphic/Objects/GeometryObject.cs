@@ -42,7 +42,7 @@ namespace Graphic.Objects
         {
                 float time = Time.deltaTime;
 
-                gameObject.position.AngleAtCenter(time, new Vector4(300,300,50));
+                //gameObject.position.AngleAtCenter(time, new Vector4(300,300,50));
 
                 Matrix4x4 mx = Matrix4x4.MatrixRotateX(time);
                 Matrix4x4 my = Matrix4x4.MatrixRotateY(time);
@@ -53,7 +53,7 @@ namespace Graphic.Objects
 
                     mx.Mult(points[i]);
                     my.Mult(points[i]);
-                    mz.Mult(points[i]);
+                    //mz.Mult(points[i]);
                     //Console.Write(points[i].x + " " + points[i].y+"  -- ");
                 }
             
