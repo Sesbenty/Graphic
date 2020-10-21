@@ -8,9 +8,6 @@ namespace Graphic.Objects
 {
     class GameScript : Component
     {
-        public GameScript(GameObject parent):base(parent){
-
-        }
 
         public override void Draw()
         {

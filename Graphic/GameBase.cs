@@ -17,61 +17,48 @@ namespace Graphic
         public override void Load()
         {
             GameObject player = new GameObject();
-            Sprite sprtiePlayer = new Sprite(player, Properties.Resources.cat);
-            player.AddComponent(sprtiePlayer);
+            Sprite sprtiePlayer = player.AddComponent<Sprite>() as Sprite;
+            sprtiePlayer.sprite = Properties.Resources.cat;
+            sprtiePlayer.width = 100;
+            sprtiePlayer.height = 100;
+            MoveInput input = player.AddComponent<MoveInput>() as MoveInput;
+            input.velocity = 200;
 
-            MoveInput input = new MoveInput(player, 200);
-            player.AddComponent(input);
 
-            GameObject player2 = new GameObject();
-            Sprite sprtiePlayer2 = new Sprite(player2, Properties.Resources.cat);
-            player2.AddComponent(sprtiePlayer2);
+            GameObject mainCamera = new GameObject();
 
-            MoveInput input2 = new MoveInput(player2, 400);
-            player2.AddComponent(input2);
-            player2.position.x = 100;
+            Camera camera = mainCamera.AddComponent<Camera>() as Camera;
+            MoveInput move = mainCamera.AddComponent<MoveInput>() as MoveInput;
+            move.velocity = 100;
+            mainCamera.transform.position.z = 40;
 
-            GameObject enemy = new GameObject();
-            Sprite spriteEnemy = new Sprite(enemy, Properties.Resources.bear, 200, 100);
-            enemy.AddComponent(spriteEnemy);
-            List<Vector3> points = new List<Vector3>();
-            Random r = new Random();
+            gameObjects.Add(mainCamera);
+            //gameObjects.Add(player);
+
+            gameObjects.Add(box(new Vector3(0, 0, 0), 5));
+
+            Random rnd = new Random(33);
             for (int i = 0; i < 5; i++)
             {
-                points.Add(new Vector3((float)r.NextDouble() * 500, (float)r.NextDouble() * 500));
-            }
-
-            enemy.position.x = 200;
-
-
-
-
-            gameObjects.Add(enemy);
-            gameObjects.Add(player);
-            gameObjects.Add(player2);
-
-
-            Random rnd = new Random(100);
-            for (int i = 0; i < 4; i++)
-            {
-                gameObjects.Add(box(
-                    new Vector4((float)rnd.NextDouble() * 200,
+                gameObjects.Add(Cube(
+                    new Vector3((float)rnd.NextDouble() * 200,
                     (float)rnd.NextDouble() * 200,
-                    (float)rnd.NextDouble() * 400)
+                    (float)rnd.NextDouble() * 100),
+                    50
                     ));
             } 
 
         }
 
-        public GameObject box(Vector4 postion)
+        public GameObject box(Vector3 position, float size)
         {
             GameObject box = new GameObject();
 
-            var p = new List<Vector4>();
-            p.Add(new Vector4(-50, 50,2));
-            p.Add(new Vector4(50, 50,2));
-            p.Add(new Vector4(50, -50,2));
-            p.Add(new Vector4(-50, -50,2));
+            var p = new List<Vector3>();
+            p.Add(new Vector3(-size, size, 2));
+            p.Add(new Vector3(size, size, 2));
+            p.Add(new Vector3(size, -size, 2));
+            p.Add(new Vector3(-size, -size,2));
 
             var l = new List<Point>();
             l.Add(new Point(0, 1));
@@ -79,13 +66,53 @@ namespace Graphic
             l.Add(new Point(2, 3));
             l.Add(new Point(3, 0));
 
-            GeometryObject gbox = new GeometryObject(box, p, l);
-            box.AddComponent(gbox);
-            box.position = postion;
+            GeometryObject gbox = box.AddComponent<GeometryObject>() as GeometryObject;
+
+            gbox.lines = l;
+            gbox.points = p;
+            box.transform.position = position;
 
             return box;
         }
+        public GameObject Cube(Vector3 position, float size)
+        {
+            GameObject Cube = new GameObject();
+            size /= 2;
+            var p = new List<Vector3>();
+            p.Add(new Vector3(size, size, -size));
+            p.Add(new Vector3(-size, size, -size));
+            p.Add(new Vector3(-size, -size, -size));
+            p.Add(new Vector3(size, -size, -size));
 
+            p.Add(new Vector3(size, size, size));
+            p.Add(new Vector3(-size, size, size));
+            p.Add(new Vector3(-size, -size, size));
+            p.Add(new Vector3(size, -size, size));
+
+            var l = new List<Point>();
+            l.Add(new Point(0, 1));
+            l.Add(new Point(1, 2));
+            l.Add(new Point(2, 3));
+            l.Add(new Point(3, 0));
+
+            l.Add(new Point(4, 5));
+            l.Add(new Point(5, 6));
+            l.Add(new Point(6, 7));
+            l.Add(new Point(7, 4));
+
+            l.Add(new Point(0, 4));
+            l.Add(new Point(1, 5));
+            l.Add(new Point(2, 6));
+            l.Add(new Point(3, 7));
+
+            GeometryObject gCube = Cube.AddComponent<GeometryObject>() as GeometryObject;
+
+            gCube.lines = l;
+            gCube.points = p;
+            Cube.transform.position = position;
+
+            return Cube;
+        }
         public override void Unload()
         {
             throw new NotImplementedException();

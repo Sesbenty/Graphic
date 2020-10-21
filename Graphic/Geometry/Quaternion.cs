@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace Graphic.Geometry
 {
-    struct Quaternion
+    public struct Quaternion
     {
-        float w { get; set; }
-        float x { get; set; }
-        float y { get; set; }
-        float z { get; set; }
+        
+        public float x { get; set; }
+        public float y { get; set; }
+        public float z { get; set; }
+        public float w { get; set; }
 
-        public Quaternion(float w, float x, float y, float z)
+        public Quaternion(float x, float y, float z, float w)
         {
             this.w = w;
             this.x = x;

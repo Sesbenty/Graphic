@@ -12,11 +12,11 @@ namespace Graphic.Objects
     {
         List<Vector2> points;
 
-        public GeometryObj(GameObject parent,List<Vector2> points) : base(parent)
+        public GeometryObj(List<Vector2> points)
         {
             this.points = points;
         }
-        public GeometryObj(GameObject parent, params Vector2[] vectors) : base(parent)
+        public GeometryObj(params Vector2[] vectors)
         {
             points = new List<Vector2>(vectors);
         }

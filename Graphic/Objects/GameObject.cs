@@ -9,14 +9,13 @@ namespace Graphic.Objects
 {
     class GameObject
     {
-        public Vector4 position;
-
+        public Transform transform;
         private List<Component> components;
 
         public GameObject()
         {
             components = new List<Component>();
-            position = new Vector4(0, 0);
+            transform = AddComponent<Transform>() as Transform;
         }
 
         public void Update()
@@ -35,9 +34,13 @@ namespace Graphic.Objects
             }
         }
 
-        public void AddComponent(Component component)
+        public Component AddComponent<T>() where T : Component, new()
         {
+            Component component = new T() as Component;
+            component.gameObject = this;
             components.Add(component);
+
+            return component;
         }
 
     }

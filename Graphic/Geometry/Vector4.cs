@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Graphic.Geometry
 {
-    class Vector4
+    public struct Vector4
     {
         public float x { get; set; }
         public float y { get; set; }
@@ -18,12 +18,15 @@ namespace Graphic.Geometry
         {
             this.x = x;
             this.y = y;
+            z = 0;
+            w = 1;
         }
         public Vector4(float x, float y, float z)
         {
             this.x = x;
             this.y = y;
             this.z = z;
+            w = 1;
         }
         public Vector4(float x, float y, float z, float w)
         {
@@ -32,7 +35,6 @@ namespace Graphic.Geometry
             this.z = z;
             this.w = w;
         }
-
 
         public void Set(float x, float y, float z, float w)
         {

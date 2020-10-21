@@ -63,6 +63,9 @@
     <Compile Include="Geometry\Matrix2x2.cs" />
     <Compile Include="Geometry\Matrix3x3.cs" />
     <Compile Include="Geometry\Matrix4x4.cs" />
+    <Compile Include="MouseHandler.cs" />
+    <Compile Include="Objects\Camera.cs" />
+    <Compile Include="Objects\Model3D.cs" />
     <Compile Include="Geometry\Quaternion.cs" />
     <Compile Include="Geometry\Vector2.cs" />
     <Compile Include="Geometry\Vector3.cs" />
@@ -80,6 +83,7 @@
     <Compile Include="Objects\Render.cs" />
     <Compile Include="Objects\RenderObject.cs" />
     <Compile Include="Objects\Sprite.cs" />
+    <Compile Include="Objects\Transform.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -113,6 +117,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

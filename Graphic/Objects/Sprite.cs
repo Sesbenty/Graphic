@@ -13,22 +13,6 @@ namespace Graphic.Objects
         public Bitmap sprite;
         public float height, width;
 
-        public Sprite(GameObject parent, Bitmap sprite,float height, float width):base(parent)
-        {
-            this.sprite = sprite;
-            this.height = height;
-            this.width = width;
-
-            
-        }
-
-        public Sprite(GameObject parent, Bitmap sprite) : base(parent)
-        {
-            this.sprite = sprite;
-            this.height = sprite.Height;
-            this.width = sprite.Width;
-        }
-
         public override void Start()
         {
             throw new NotImplementedException();
@@ -41,7 +25,7 @@ namespace Graphic.Objects
 
         public override void Draw()
         {
-            Render.gfx.DrawImage(sprite, new RectangleF(gameObject.position.x, gameObject.position.y, width, height));
+            Render.gfx.DrawImage(sprite, new RectangleF(gameObject.transform.position.x, gameObject.transform.position.y, width, height));
         }
     }
 }

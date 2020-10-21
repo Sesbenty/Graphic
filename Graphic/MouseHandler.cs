@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Graphic.Geometry;
-using Graphic.Objects;
+
 namespace Graphic
 {
-    class MoveObj:GameScript
+    public class MouseHandler
     {
-        Vector2 a, b;
-        public MoveObj(Vector2 a, Vector2 b)
-        {
+        public static int deltaX;
+        public static int deltaY;
 
-        }
+        public static int x;
+        public static int y;
     }
 }

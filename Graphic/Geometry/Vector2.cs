@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace Graphic.Geometry
 {
-    public class Vector2
+    public struct Vector2
     {
         public float x { get; set; }
         public float y { get; set; }
@@ -27,7 +27,7 @@ namespace Graphic.Geometry
             this.x = x;
             this.y = y;
         }
-    public static float Distance(Vector2 a, Vector2 b)
+        public static float Distance(Vector2 a, Vector2 b)
         {
             return (float)Math.Sqrt(a.x * b.x + a.y * b.y);
         }

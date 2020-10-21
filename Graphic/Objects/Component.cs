@@ -8,13 +8,10 @@ namespace Graphic.Objects
 {
     abstract class Component
     {
-        public GameObject gameObject { get; }
+        public GameObject gameObject { get; set; }
+
         public abstract void Start();
         public abstract void Update();
         public abstract void Draw();
-        public Component(GameObject parent)
-        {
-            gameObject = parent;
-        }
     }
 }

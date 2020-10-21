@@ -10,31 +10,36 @@ namespace Graphic
 {
     class MoveInput:GameScript
     {
-        float velocity { get; set; }
-        public MoveInput(GameObject parent, float velocity) : base(parent)
+        public float velocity { get; set; }
+        public MoveInput()
+        {
+            velocity = 100;
+        }
+        public MoveInput(float velocity)
         {
             this.velocity = velocity;
         }
 
         public override void Update()
         {
-            int moveDistance = (int)(velocity * Time.deltaTime);
+            float moveDistance = velocity * Time.deltaTime;
             if ((Keyboard.GetKeyStates(Key.Right) & KeyStates.Down) > 0)
             {
-                gameObject.position.x += moveDistance;
+                gameObject.transform.position.x += moveDistance;
             }
             if ((Keyboard.GetKeyStates(Key.Left) & KeyStates.Down) > 0)
             {
-                gameObject.position.x -= moveDistance;
+                gameObject.transform.position.x -= moveDistance;
             }
             if ((Keyboard.GetKeyStates(Key.Up) & KeyStates.Down) > 0)
             {
-                gameObject.position.y -= moveDistance;
+                gameObject.transform.position.z -= moveDistance;
             }
             if ((Keyboard.GetKeyStates(Key.Down) & KeyStates.Down) > 0)
             {
-                gameObject.position.y += moveDistance;
+                gameObject.transform.position.z += moveDistance;
             }
+
         }
     }
 }

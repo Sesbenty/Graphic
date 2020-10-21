@@ -11,6 +11,8 @@ namespace Graphic
     static class Render 
     {
         public static Graphics gfx;
+        public static Matrix4x4 view = Matrix4x4.identity;
+        public static Matrix4x4 projection = Matrix4x4.identity;
 
         public static void BrezenheimLine(Vector3 a, Vector3 b)
         {
@@ -53,15 +55,17 @@ namespace Graphic
 
         public static void WuLine(Vector4 a, Vector4 b)
         {
-            int ax = Convert.ToInt32(a.x / (1 - a.z / 500));
-            int ay = Convert.ToInt32(a.y / (1 - a.z / 500));
-            int bx = Convert.ToInt32(b.x / (1 - b.z / 500));
-            int by = Convert.ToInt32(b.y / (1 - b.z / 500));
-            WuLine(ax, ay, bx, by);
+            //WuLine(ax, ay, bx, by);
         }
-        public static void WuLine(Vector3 a, Vector3 b)
+        public static void WuLine(Vector3 a, Vector3 b, Matrix4x4 model)
         {
-            WuLine(Convert.ToInt32(a.x), Convert.ToInt32(a.y), Convert.ToInt32(b.x), Convert.ToInt32(b.y));
+            Vector4 ac = new Vector4(a.x, a.y, a.z);
+            Vector4 bc = new Vector4(b.x, b.y, b.z);
+
+            ac = model * view * projection * ac;
+            bc = model * view * projection * bc;
+
+            WuLine(Convert.ToInt32(ac.x), Convert.ToInt32(ac.y), Convert.ToInt32(bc.x), Convert.ToInt32(bc.y));
         }
         public static void WuLine(Vector2 a, Vector2 b)
         {

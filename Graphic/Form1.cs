@@ -18,6 +18,9 @@ namespace Graphic
         public Form1()
         {
             InitializeComponent();
+
+            this.MouseMove += Mouse_Move_Event;
+
             Paint += Form1_Paint;
             this.DoubleBuffered = true;
             graphicsTimer = new System.Windows.Forms.Timer();
@@ -46,6 +49,15 @@ namespace Graphic
         private void GraphicsTimer_Tick(object sender, EventArgs e)
         {
             Invalidate();
+        }
+
+        private void Mouse_Move_Event(object sender, MouseEventArgs e)
+        {
+            MouseHandler.deltaX = e.X - MouseHandler.x;
+            MouseHandler.deltaY = e.Y - MouseHandler.y;
+
+            MouseHandler.x = e.X;
+            MouseHandler.y = e.Y;
         }
     }
 }
