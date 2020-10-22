@@ -135,10 +135,10 @@ namespace Graphic.Geometry
             Minv.vs[9] = z.y;
             Minv.vs[10] = z.z;
 
-            Tr.vs[3] = -eye.x;
-            Tr.vs[7] = -eye.y;
-            Tr.vs[11] = -eye.z;
-
+            Tr.vs[3] = -center.x;
+            Tr.vs[7] = -center.y;
+            Tr.vs[11] = -center.z;
+            // https://ravesli.com/urok-9-kamera-v-opengl/
             return Minv * Tr ;
         }
 
@@ -161,13 +161,8 @@ namespace Graphic.Geometry
         {
             Matrix4x4 m = identity;
 
-            m.vs[0] = 1;
-            m.vs[5] = 1;
 
-            m.vs[14] = -1/c;
-
-            m.vs[10] = 1;
-            m.vs[15] = 1;
+            m.vs[14] = -1 / c;
 
             return m;
         }

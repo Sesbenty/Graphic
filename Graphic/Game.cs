@@ -32,7 +32,7 @@ namespace Graphic
 
         public void Draw()
         {
-            Render.gfx.FillRectangle(new SolidBrush(Color.CornflowerBlue), new Rectangle(0, 0, Resolution.Width, Resolution.Height));
+            Render.gfx.FillRectangle(new SolidBrush(Color.White), new Rectangle(0, 0, Resolution.Width, Resolution.Height));
             for (int i = 0; i < gameObjects.Count; i++)
             {
                 gameObjects[i].Draw();

@@ -10,6 +10,10 @@ namespace Graphic.Objects
 {
     class Camera:Component
     {
+        const int width  = 800;
+const int height = 800;
+const int depth  = 255;
+
         Matrix4x4 projection;
         Matrix4x4 view;
 
@@ -73,6 +77,7 @@ namespace Graphic.Objects
 
             Render.projection = projection;
             Render.view = view;
+            //Render.viewPort = Matrix4x4.MatrixViewPort(723)
         }
 
         public override void Draw()

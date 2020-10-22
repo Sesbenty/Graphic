@@ -35,16 +35,18 @@ namespace Graphic
             gameObjects.Add(mainCamera);
             //gameObjects.Add(player);
 
-            gameObjects.Add(box(new Vector3(0, 0, 0), 5));
-
+            gameObjects.Add(Cube(new Vector3(100,100, 0), 5));
+            gameObjects.Add(Cube(new Vector3(100, 100, 0), 50));
+            gameObjects.Add(Cube(new Vector3(100, 100, 0), 80));
+            gameObjects.Add(Cube(new Vector3(100, 100, 0), 100));
             Random rnd = new Random(33);
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 0; i++)
             {
                 gameObjects.Add(Cube(
-                    new Vector3((float)rnd.NextDouble() * 200,
-                    (float)rnd.NextDouble() * 200,
-                    (float)rnd.NextDouble() * 100),
-                    50
+                    new Vector3((float)rnd.NextDouble() * 400,
+                    (float)rnd.NextDouble() * 400,
+                    (float)rnd.NextDouble() * 400),
+                    (float)rnd.NextDouble() * 200
                     ));
             } 
 

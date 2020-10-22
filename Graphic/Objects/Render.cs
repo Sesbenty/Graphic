@@ -13,6 +13,7 @@ namespace Graphic
         public static Graphics gfx;
         public static Matrix4x4 view = Matrix4x4.identity;
         public static Matrix4x4 projection = Matrix4x4.identity;
+        public static Matrix4x4 viewPort = Matrix4x4.identity;
 
         public static void BrezenheimLine(Vector3 a, Vector3 b)
         {
@@ -62,8 +63,8 @@ namespace Graphic
             Vector4 ac = new Vector4(a.x, a.y, a.z);
             Vector4 bc = new Vector4(b.x, b.y, b.z);
 
-            ac = model * view * projection * ac;
-            bc = model * view * projection * bc;
+            ac = model * view * projection * viewPort * ac;
+            bc = model * view * projection * viewPort * bc;
 
             WuLine(Convert.ToInt32(ac.x), Convert.ToInt32(ac.y), Convert.ToInt32(bc.x), Convert.ToInt32(bc.y));
         }
